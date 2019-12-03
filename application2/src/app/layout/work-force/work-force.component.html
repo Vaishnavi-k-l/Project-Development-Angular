@@ -1,0 +1,94 @@
+<div class="row">
+    <div class="col-sm-6 div1">
+      <mat-card class="employee-card">
+        <mat-card-header>
+          <mat-card-title>
+            All Employees
+          </mat-card-title>
+          <mat-card-subtitle>
+            <mat-form-field class="example-full-width">
+              <input matInput #searchData>
+            </mat-form-field>
+            <mat-icon (click)="searchEmp(searchData.value)">search</mat-icon>Search Employee
+          </mat-card-subtitle>
+        </mat-card-header>
+  
+        <mat-card-content>
+          <!--<div class="mat-elevation-z8 emp-div">-->
+              
+          <table class="table-hover" mat-table [dataSource]="dataSource">
+  
+  
+            <ng-container matColumnDef="firstName">
+              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <td mat-cell #val [attr.data-emp-id]="element.employeeId" *matCellDef="let element" (click)="logData(val)"> {{element.firstName}} {{element.middleName}} {{element.lastName}}
+              </td>
+            </ng-container>
+  
+  
+            <ng-container matColumnDef="email">
+              <th mat-header-cell *matHeaderCellDef> Email </th>
+              <td mat-cell #val [attr.data-emp-id]="element.employeeId" *matCellDef="let element" (click)="logData(val)">
+                {{element.username}} </td>
+            </ng-container>
+  
+  
+  
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          <mat-paginator [pageSizeOptions]="[5, 10]" showFirstLastButtons></mat-paginator>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  
+  
+  
+    <div class="col-sm-6 ">
+      <mat-card class="employee-card">
+          <mat-card-header>
+              <mat-card-title>
+                Employee Details
+              </mat-card-title>
+            </mat-card-header>
+        <mat-card-content>
+            <div class="alert alert-warning" *ngIf="errorMessage">
+                <p style="color:red;">{{errorMessage}}</p>
+            </div>
+          <table class="table table-bordered" *ngFor="let val of detailsOfEmployee">
+  
+            <tbody>
+  
+              <tr class="tablerow">
+                <td>Name:</td>
+                <td>{{val.employeeId.firstName}} {{val.employeeId.middleName}} {{val.employeeId.lastName}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>Designation:</td>
+                <td>{{val.employeeId.userType}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>MailId:</td>
+                <td>{{val.employeeId.username}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>ProjectName:</td>
+                <td>{{val.projectId.name}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>StartDate:</td>
+                <td>{{val.projectId.startDate | date:"MM/dd/yy"}}</td>
+              </tr>
+              <tr class="tablerow">
+                  <td>EndDate:</td>
+                  <td>{{val.projectId.endDate | date:"MM/dd/yy"}}</td>
+                </tr>
+  
+            </tbody>
+  
+          </table>
+        </mat-card-content>
+  
+      </mat-card>
+    </div>
+  </div>

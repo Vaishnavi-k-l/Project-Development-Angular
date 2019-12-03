@@ -1,0 +1,81 @@
+<div class="container">
+    <mat-card class="detail-card " *ngIf="projects">
+      <mat-card-header >
+      </mat-card-header>
+      <mat-card-content>
+        <!--<div class="container detaildisplay" *ngIf="projects" >-->
+        <div class="heading">
+          <h4>{{projects[0].name |titlecase}}</h4>
+  
+  
+        </div><br>
+        <button class="button button1" [routerLink]="['/side-nav/task']">
+          <span>View Progress</span></button>
+        <table class="tab" *ngIf="mongodata">
+          <tr>
+            <td class="col1">
+              <h5>Description: </h5>
+            </td>
+            <td class="col2">
+              <p>{{mongodata.projectDesc}}</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="col1">
+              <h5>Budget: </h5>
+            </td>
+            <td class="col2">
+              <p>${{projects[0].budget}}</p>
+            </td>
+          </tr>
+  
+          <tr>
+            <td class="col1">
+              <h5>GitHub link: </h5>
+            </td>
+            <td class="col2">
+              <p><a href="project.githubLink">{{projects[0].githubLink}}</a></p>
+            </td>
+          </tr>
+  
+          <tr>
+            <td class="col1">
+              <h5>Stakeholders:</h5>
+            </td>
+            <td class="col2">
+              <p>{{mongodata.stakeholders}}</p>
+            </td>
+          </tr>
+  
+          <tr>
+            <td class="col1">
+              <h5>Due Date:</h5>
+            </td>
+            <td class="col2">
+              <p>{{ projects[0].endDate | date: "MM/dd/yy"}}</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="col1">
+              <h5>Start Date:</h5>
+            </td>
+            <td class="col2">
+              <p>{{ projects[0].startDate | date: "MM/dd/yy"}}</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="col1">
+              <h5>Manager:</h5>
+            </td>
+            <td class="col2">
+              <p>{{ projects[0].managerId.firstName}} {{ projects[0].managerId.middleName}}
+                {{ projects[0].managerId.lastName}}</p>
+            </td>
+          </tr>
+        </table>
+  
+  
+  
+      </mat-card-content>
+    </mat-card>
+  </div>
