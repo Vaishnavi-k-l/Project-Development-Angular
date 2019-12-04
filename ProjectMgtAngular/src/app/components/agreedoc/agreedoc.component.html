@@ -1,0 +1,57 @@
+<div class="container border p-3 mt-3 rounded" [hidden]="hide">
+
+  <mat-card>
+
+    <mat-card-header>
+      <mat-card-title>Terms and Conditions</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <!--
+      <p>
+        {{terms}}
+      </p>
+    -->
+      <p>
+          The Developer shall complete the development of the Software according to the milestones described on the form attached hereto as Exhibit B. 
+          In accordance with such milestones, the final product shall be delivered to the Client by
+           [Final delivery date] (the “Delivery Date”).
+          For a period of [Time frame] after delivery of the final product, the Developer shall provide the Client attention to answer any questions 
+          
+          or assist solving any problems with regard to the operation of the Software up to [Number of hours]
+           of hours free of charge and billed to the Client at a rate of [Rate] per hour for any assistance thereafter.
+            The Developer agrees to respond to any reasonable request for assistance made by the Client regarding the
+             Software within [Time frame] of the request.Except as expressly provided in this Software Development 
+             Agreement, the Client shall not be obligated under this Agreement to provide any other support or 
+             assistance to the Developer.The Client may terminate this Software Development Agreement at any 
+             time upon material breach of the terms herein and failure to cure such a breach within [Time frame] of 
+             notification of such a breach.The Developer shall provide to the Client after the Delivery Date, 
+             a cumulative [Time frame] of training with respect to the operation of the Software if requested by the Client.
+          
+      </p>
+      <p>
+          The Parties acknowledge and agree that the Client will hold all intellectual property rights in the 
+          Software including, but not limited to, copyright and trademark rights. The Developer agrees not to 
+          claim any such ownership in the Software’s intellectual property at any time prior to or after the 
+          completion and delivery of the Software to the Client.
+      </p> 
+      <section class="example-section">
+        <mat-checkbox class="example-margin" [(ngModel)]="disabled">Agree Terms & Conditions</mat-checkbox>
+      </section>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-content>
+        <form class="my-form" #TermsNConditionForm=ngForm (ngSubmit)="Submit()">
+
+          <mat-card-actions>
+            <button mat-raised-button type="submit" color="primary" [disabled]="!disabled">SUBMIT</button>
+          </mat-card-actions>
+
+        </form>
+    </mat-card-content>
+  </mat-card>
+
+
+</div>

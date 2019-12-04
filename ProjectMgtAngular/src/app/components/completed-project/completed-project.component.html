@@ -1,0 +1,70 @@
+
+         <mat-card class="employee-card" >
+            <mat-card-header>
+              <mat-card-title>
+               Completed Projects
+              </mat-card-title>
+              <mat-card-subtitle>
+                  <mat-form-field class="example-full-width">
+                    <input matInput #yearData>
+                  </mat-form-field>
+                  <mat-icon (click)="searchProj(yearData.value)">search</mat-icon>Search by Year
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="alert alert-warning" *ngIf="errormessage">
+                    <p style="color:red;">{{errormessage}}</p>
+                </div>
+                  <table class="table" mat-table [dataSource]="dSource">
+                 <!-- <thead>
+                      <tr class="alignment text-uppercase">
+                        <th>ProjeTitle</th>
+                        <th>Start Date</th>
+                        <th>Due Date</th>
+                        <th>View More</th>
+                        
+                      </tr>
+                    </thead>
+                <tbody>
+                  <tr *ngFor="let project of projects ">
+                    <td #proj [attr.data-project-id]="project.projectId" >{{ project.name |titlecase}}</td>
+                    <td>{{project.startDate|date:"MM/dd/yy"}}</td>
+                    <td>{{project.endDate|date:"MM/dd/yy"}}</td>
+                    <td> <button [routerLink]="['/details']" (click)="gotonext(proj)" mat-button>View Project</button></td>
+                   
+                  </tr>
+                </tbody>-->
+  
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef > Project Title </th>
+                    <td mat-cell  *matCellDef="let element" class="body"> {{element.name}} 
+                    </td>
+                  </ng-container>
+                  <ng-container matColumnDef="startDate">
+                      <th mat-header-cell *matHeaderCellDef > Start date </th>
+                      <td mat-cell  *matCellDef="let element" class="body"> {{element.startDate | date:"MM/dd/yy"}} 
+                      </td>
+                    </ng-container>
+                    <ng-container matColumnDef="endDate">
+                        <th mat-header-cell *matHeaderCellDef > End Date </th>
+                        <td mat-cell  *matCellDef="let element" class="body" > {{element.endDate | date:"MM/dd/yy"}} 
+                        </td>
+                      </ng-container>
+                      <ng-container matColumnDef="action">
+                          <th mat-header-cell *matHeaderCellDef > View More </th>
+                          <td mat-cell [routerLink]="['/side-nav/details']" #proj [attr.data-project-id]="element.projectId" class="body" *matCellDef="let element"(click)="gotonext(proj)"> 
+                            <button class="btn">View Project</button>
+                          </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="dColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: dColumns;"></tr>
+                      </table>
+                      <mat-paginator [pageSizeOptions]="[5, 10]" showFirstLastButtons></mat-paginator>
+              
+          
+            </mat-card-content>
+            
+          </mat-card>
+  
+
+

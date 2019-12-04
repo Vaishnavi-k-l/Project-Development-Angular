@@ -1,0 +1,42 @@
+<mat-card class="task-card">
+    <mat-card-header>
+      <mat-card-title>
+       Subtasks
+      </mat-card-title>
+      
+    </mat-card-header>
+    <mat-card-content>
+      <table class="table text-center">
+        <thead>
+          <tr class="alignment text-uppercase">
+            <th>Title</th>
+            <th>Assigned To</th>
+            <th>description</th>
+            <th>start date</th>
+            <th>due date</th>
+           
+            <th>progress</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let sbtask of subtask">
+            <td>{{sbtask[3]}}</td>
+            <td>{{sbtask[0]}} {{sbtask[1]}}</td>
+           
+            <td>{{sbtask[4]}}</td>
+            <td>{{sbtask[5] | date: "MM/dd/yy"}}</td>
+            <td>{{sbtask[2] | date: "MM/dd/yy"}}</td>
+            <td>
+                <div class="task-progress-container">
+                  <progress-bar [progress]="sbtask[6]"
+                            [color-degraded]="{'0': '#FF0000',  '15':'#EAED19', '50': '#2A9DDF','90': '#5EDF2A'}">
+                        </progress-bar>
+                </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+  
+    </mat-card-content>
+  </mat-card>
