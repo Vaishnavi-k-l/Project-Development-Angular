@@ -41,7 +41,8 @@ import { ProjectDetailsComponent } from './components/project-details/project-de
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { CreateProjectComponent } from './components/create-project/create-project.component';
 import { CompletedialogComponent } from './components/completedialog/completedialog.component';
-import { CompleteProjectComponent } from './components/completeproject/completeproject.component';
+
+
 import { CreateSubTaskComponent } from './components/create-sub-task/create-sub-task.component';
 import { CreateTaskComponent } from './components/create-task/create-task.component';
 import { CardSmMComponent } from './components/cards/card-sm-m/card-sm-m.component';
@@ -88,7 +89,6 @@ import { CardVrEComponent } from './components/cards/card-vr-e/card-vr-e.compone
     SidenavComponent,
     CreateProjectComponent,
     CompletedialogComponent,
-    CompleteProjectComponent,
     CreateSubTaskComponent,
     CreateTaskComponent,
     CardHrChartMComponent,
@@ -152,10 +152,7 @@ import { CardVrEComponent } from './components/cards/card-vr-e/card-vr-e.compone
       useClass: TokenInterceptor,
       multi: true
     },
-     {
-      provide: ErrorHandler,
-      useClass:ErrorService
-    }],
+     ],
   bootstrap: [AppComponent],
   entryComponents: [CompletedialogComponent,CreateTaskComponent,CreateSubTaskComponent]
 })

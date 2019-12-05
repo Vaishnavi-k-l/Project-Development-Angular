@@ -35,7 +35,7 @@
 
       <mat-form-field class="subtask-form-inputs">
           <mat-label>Employee Assignment</mat-label>
-          <mat-select  name="employeeId" #employeeId="ngModel" [(ngModel)]="data.employeeId" >
+          <mat-select  name="employeeId" required #employeeId="ngModel" [(ngModel)]="data.employeeId" >
             <mat-option *ngFor="let projectMember of data.projectMembers" [value]="projectMember.employeeId">
               {{projectMember.employeeId.username}}
             </mat-option>

@@ -4,13 +4,21 @@
 =========================================
 */
 .navigation-container {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    /* min-height: 100vh; */
+    min-height: 100vh; 
     min-width: 100vw;
-    position: fixed;
+    position: fixed; */
+    display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   }
-  
+
+
   .navigation-is-mobile{
     position: fixed;
     /* Make sure the toolbar will stay on top of the content as it scrolls past. */
@@ -24,7 +32,7 @@
     /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
        causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
     flex: 1;
-    height: 100vh;
+    /*height: 100vh;*/
     background-color: #f4f3ef;
 
     
@@ -35,7 +43,7 @@
     /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
        `<body>` to be our scrolling element for mobile layouts. */
     /* flex: 1 0 auto; */
-    flex: 1 0 auto;
+    /*flex: 1 0 auto;*/
 
   }
   
@@ -90,24 +98,27 @@ button:focus{
   background: #1f1f21;
 }
 
-.card-container{
-  background: red;
-}
+
+
 .example-card{
-  background: rgb(52,212,235);
-  background: radial-gradient(circle, rgba(52,212,235,1) 31%, rgba(45,81,253,1) 100%);
+  /* background: #e7d2d2; */
+
+
+   background: rgb(52,212,235);
+  /* background: radial-gradient(circle, rgba(52,212,235,1) 31%, rgba(45,81,253,1) 100%);  */
+  background: radial-gradient(circle, rgba(52,212,235,1) 31%, rgba(45,81,253,1) 100%); 
   border-radius: 0;
-  min-height: 100px;
+  min-height: 200px;
   display: flex;
   justify-content: center;
 }
 
-
 .profile_image{
+  padding-top: 1em;
   position: relative;
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
+   height: 150px;
+  width: 150px;
+  /*border-radius: 50%;*/
 }
 
 .sidebar-list{
@@ -144,6 +155,3 @@ button:focus{
   vertical-align: bottom;
 }
 
-
-.sidenav-content{
-}

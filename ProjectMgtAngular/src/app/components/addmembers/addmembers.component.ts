@@ -10,7 +10,6 @@ import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { EmployeeSkillService } from 'src/app/services/employee-skill.service';
 import { Projectmember } from 'src/app/models/projectmember';
 import { Project } from 'src/app/models/project';
 

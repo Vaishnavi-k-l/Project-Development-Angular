@@ -7,6 +7,7 @@ import { Chart } from 'chart.js';
 import { Task } from 'src/app/models/task';
 import { Project } from 'src/app/models/project';
 import { MatDialog } from '@angular/material/dialog';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-card-vr-chartM',
@@ -30,7 +31,7 @@ export class CardVrChartMComponent implements OnInit {
   projectName: string;
   dd: string;
 
-  constructor(private projectService: ProjectService, private taskService: TaskService, public dialog: MatDialog) {
+  constructor(private projectService: ProjectService, private taskService: TaskService, public dialog: MatDialog, public router: Router) {
     this.tasks = new Array<Task>();
   }
 
@@ -105,6 +106,16 @@ export class CardVrChartMComponent implements OnInit {
     window.open(this.projectDescription);
   }
 
+
+ logout(){
+    sessionStorage.removeItem('eid');
+    sessionStorage.removeItem('useType');
+    sessionStorage.removeItem('username');
+    sessionStorage.removeItem('pid');
+    sessionStorage.removeItem('tid');
+    this.router.navigate(['login']);
+  }
+
   openDialog(): void {
     const dialogRef = this.dialog.open(CompletedialogComponent, {
       width: '400px',
@@ -127,6 +138,7 @@ export class CardVrChartMComponent implements OnInit {
         console.log('hi 2');
 
         console.log('Project is deleted.');
+        this.logout();
       }
 
     });

@@ -105,7 +105,7 @@
     
             <div class="form-group">
                 <label for="inputStakeholders">Project Stakeholders<span class="text-danger">*</span></label>
-                <textarea type="text" class="form-control" id="inputStakeholders" autosize minlength="4"
+                <textarea type="text" class="form-control" id="inputStakeholders" autosize 
                     [(ngModel)]="projectMapper.stakeholders" name="stakeholders" placeholder="Enter various stakeholders"
                     required #stakeholders="ngModel" [ngClass]="{
                         'has-danger': stakeholders.invalid && (stakeholders.dirty || stakeholders.touched),
@@ -115,8 +115,7 @@
                 <div class="form-control-feedback" *ngIf="stakeholders.errors && (stakeholders.dirty || stakeholders.touched)"
                 class="alert alert-danger">
                     <div *ngIf="stakeholders.errors.required"> Project stakeholders details are required.</div>
-                    <div *ngIf="stakeholders.errors.minlength">Project stakeholders details must be at least 10 characters long.
-                    </div>
+                   
                 </div>
     
     

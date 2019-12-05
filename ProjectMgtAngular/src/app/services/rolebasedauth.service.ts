@@ -24,7 +24,7 @@ export class RolebasedauthService implements CanActivate{
       this.router.navigate(['login']);
       console.log(this.auth.isUserLoggedIn);
       console.log(role != expectedRole)
-      console.log("laklalalallala");
+      console.log("lalalallala");
       
       return false;
     }
