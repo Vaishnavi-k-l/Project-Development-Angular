@@ -14,7 +14,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { TokenInterceptor } from "./services/token-interceptor.service";
 
 
-import { ManagerComponent } from './components/manager/manager.component';
+import { ManagerComponent } from './layout/manager/manager.component';
 import { ServiceService } from './services/service.service';
 import { AgreedocComponent } from './components/agreedoc/agreedoc.component';
 
@@ -23,7 +23,7 @@ import { CompletedProjectComponent } from './components/completed-project/comple
 import { ChartService } from './services/chart.service';
 import { MaterialModule } from './modules/material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { SidenavComponent } from './layout/sidenav/sidenav.component';
 import { CardSmComponent } from './components/cards/card-sm/card-sm.component';
 import { CardLayoutComponent } from './layout/card-layout/card-layout.component';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -32,7 +32,7 @@ import { ChartsModule } from 'ng2-charts';
 import { CardHrChartComponent } from './components/cards/card-hr-chart/card-hr-chart.component';
 import { CardVrChartComponent } from './components/cards/card-vr-chart/card-vr-chart.component';
 import { TaskComponent } from './components/task/task.component';
-import { WorkforceComponent } from './layout/work-force/work-force.component';
+import { WorkforceComponent } from './components/work-force/work-force.component';
 import { SubtaskComponent } from './components/subtask/subtask.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { ProgressBarModule } from "angular-progress-bar";
@@ -49,7 +49,7 @@ import {CardHrChartMComponent} from './components/cards/card-hr-chart-m/card-hr-
 import {CardVrChartMComponent} from './components/cards/card-vr-chart-m/card-vr-chart-m.component';
 import {SubtaskMComponent} from './components/subtaskM/subtaskM.component';
 import {TaskMComponent} from './components/taskM/taskM.component';
-import {WorkforceMComponent} from './layout/workforce-m/workforce-m.component';
+import {WorkforceMComponent} from './components/workforce-m/workforce-m.component';
 
 import { SkillsService } from './services/skill.service';
 import {EmployeeService} from './services/employee.service';
@@ -65,6 +65,8 @@ import { ErrorpageComponent } from './components/errorpage/errorpage.component';
 
 
 import {ErrorService} from './services/error.service';
+import { CardEmpLayoutComponent } from './layout/card-emp-layout/card-emp-layout.component';
+import { CardVrEComponent } from './components/cards/card-vr-e/card-vr-e.component';
 
 
 @NgModule({
@@ -104,6 +106,8 @@ import {ErrorService} from './services/error.service';
     AddmembersComponent,
     ViewmembersComponent,
     ErrorpageComponent,
+    CardEmpLayoutComponent,
+    CardVrEComponent,
   ],
   imports: [
     FormsModule,

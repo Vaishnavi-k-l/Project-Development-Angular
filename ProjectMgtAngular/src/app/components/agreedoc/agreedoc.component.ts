@@ -54,18 +54,21 @@ export class AgreedocComponent implements OnInit {
 
   getAuthorizedProject(employeeId: number){
     this.projectMemberService.findProjectByEmpId(employeeId).subscribe(response => {
-      this.projectMember = response.map(item => {
+                console.log(response);
+    console.log(response[0].projectId.projectId.toString());
+    sessionStorage.setItem('pid',response[0].projectId.projectId.toString());
+      /*this.projectMember = response.map(item => {
         return new Projectmember(         
           item.projectId,
           item.employeeId,
           item.authority
          
           );
-      });
-      console.log(response);
+      });*/
+      
       //console.log(this.projectMember);
-      console.log("Authorized Project Id "+this.projectMember[0].projectId.projectId.toString());
-      sessionStorage.setItem('pid',this.projectMember[0].projectId.projectId.toString());
+     // console.log("Authorized Project Id "+this.projectMember[0].projectId.projectId.toString());
+      //sessionStorage.setItem('pid',this.projectMember[0].projectId.projectId.toString());
     } );
 
   }
@@ -88,7 +91,7 @@ export class AgreedocComponent implements OnInit {
 
           }
           else if(this.employee.userType === "MEMBER"){
-            this.router.navigate(['employee']);
+            this.router.navigate(['cardemp']);
 
           }
     
@@ -119,7 +122,7 @@ export class AgreedocComponent implements OnInit {
 
     }
     else if(this.employee.userType === "MEMBER"){
-      this.router.navigate(['employee']);
+      this.router.navigate(['cardemp']);
 
     }
 

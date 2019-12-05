@@ -2,24 +2,26 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from "./layout/login/login.component";
 
-import { ManagerComponent } from './components/manager/manager.component';
+import { ManagerComponent } from './layout/manager/manager.component';
 import { AgreedocComponent } from './components/agreedoc/agreedoc.component';
 import { CardLayoutComponent } from './layout/card-layout/card-layout.component';
-import { WorkforceComponent } from './layout/work-force/work-force.component';
+import { WorkforceComponent } from './components/work-force/work-force.component';
 import { TaskComponent } from './components/task/task.component';
 import { SubtaskComponent } from './components/subtask/subtask.component';
 import { CompletedProjectComponent } from './components/completed-project/completed-project.component';
 import { OngoingProjectComponent } from './components/ongoing-project/ongoing-project.component';
 import { ProjectDetailsComponent } from './components/project-details/project-details.component';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { SidenavComponent } from './layout/sidenav/sidenav.component';
 import { CreateProjectComponent } from './components/create-project/create-project.component';
 import { TaskMComponent } from './components/taskM/taskM.component';
 import { SubtaskMComponent } from './components/subtaskM/subtaskM.component';
-import { WorkforceMComponent } from './layout/workforce-m/workforce-m.component';
+import { WorkforceMComponent } from './components/workforce-m/workforce-m.component';
 import { CardLayoutMComponent } from './components/card-layout-m/card-layout-m.component';
 import {EmployeeUpdtaeComponent} from './components/employee-updtae/employee-updtae.component';
 import {ErrorpageComponent} from './components/errorpage/errorpage.component';
 import {RolebasedauthService} from './services/rolebasedauth.service';
+import { CardEmpLayoutComponent } from './layout/card-emp-layout/card-emp-layout.component';
+
 
 const routes: Routes = [ 
     {
@@ -31,13 +33,22 @@ const routes: Routes = [
     {
         path: 'employee', component: EmployeeUpdtaeComponent, data: {
             expectedRole: 'MEMBER'
-        }
-    },
+        },
+        
+    },{
+
+  
+    path: 'cardemp', component: CardEmpLayoutComponent, data: {
+            expectedRole: 'MEMBER'
+        },
+        },
     {
         path: 'login', component: LoginComponent,
     },
    
-    { path: 'agreedoc', component: AgreedocComponent, canActivate: [RolebasedauthService] },
+    { path: 'agreedoc', component: AgreedocComponent
+  
+     },
 
     {
         path: 'manager', component: ManagerComponent, canActivate: [RolebasedauthService],
@@ -73,6 +84,14 @@ const routes: Routes = [
                 path: 'subtaskM',
                 component: SubtaskMComponent,
                 canActivate: [RolebasedauthService],
+                data: {
+                    expectedRole: 'MANAGER'
+                }
+            },
+            {
+                path:'workforceM',
+                component: WorkforceMComponent,
+                 canActivate: [RolebasedauthService],
                 data: {
                     expectedRole: 'MANAGER'
                 }
