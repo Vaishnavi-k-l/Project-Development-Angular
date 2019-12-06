@@ -20,8 +20,8 @@ export class SubtaskServiceService
  
   constructor(private http: HttpClient) 
   { 
-      this.subtaskUrl = 'http://localhost:9999/getAllsubtasks';
-      this.updateUrl = 'http://localhost:9999/updateProgress';
+      this.subtaskUrl = 'http://localhost:8050/employee-service/api/getsubtasks';
+      this.updateUrl = 'http://localhost:8050/employee-service/api/updateProgress';
   }
 
   public findAll(): Observable<Subtask[]>

@@ -13,7 +13,7 @@ export class SkillsService {
 
 
   constructor(private http: HttpClient) {
-    this.skillURL = 'http://localhost:9999/skill/getAllSkills';
+    this.skillURL = 'http://localhost:8050/manager-service/skill/getAllSkills';
   }
 
 

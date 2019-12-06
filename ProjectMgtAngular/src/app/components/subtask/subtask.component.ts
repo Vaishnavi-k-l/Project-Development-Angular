@@ -16,11 +16,11 @@ export class SubtaskComponent implements OnInit {
 
   ngOnInit() {
 
-    this.getSubTasks(sessionStorage.getItem("tid"))
+    this.getSubTasks(sessionStorage.getItem("pid"),sessionStorage.getItem("tid"))
   }
 
-  getSubTasks( pid) {
-    this.subtaskService.findSubTask(pid).subscribe(
+  getSubTasks( pid,tid) {
+    this.subtaskService.getSubtask(pid,tid).subscribe(
     task => {
     this.subtask = task;
     if(this.subtask.length<=0)

@@ -17,13 +17,13 @@ export class ProjectService {
 
 
   constructor(private http: HttpClient) {
-    this.projectUrl = 'http://localhost:9999/getProjectDetails';
+    this.projectUrl = 'http://localhost:8050/admin-service/api/getProjects';
     
     
-    this.projectManagerUrl = 'http://localhost:1188/project/Project';
-    this.projectDescServiceUrl = 'http://localhost:1188/projectDesc/saveProjectDesc';
-    this.projectByIdUrl = 'http://localhost:1188/project/ProjectById';
-    this.completeProjectUrl = 'http://localhost:1188/project/CompleteProject';
+    this.projectManagerUrl = 'http://localhost:8050/manager-service/project/Project';
+    this.projectDescServiceUrl = 'http://localhost:8050/manager-service/projectDesc/saveProjectDesc';
+    this.projectByIdUrl = 'http://localhost:8050/manager-service/project/ProjectById';
+    this.completeProjectUrl = 'http://localhost:8050/manager-service/project/CompleteProject';
   }
 //get all projects
   public getAllProjectDetails(): Observable<Project[]> {
@@ -71,24 +71,24 @@ export class ProjectService {
         return this.http.get<Projectmongo[]>(url);
       }
   public getOngoingProjectByYear(yr:number):Observable<Project[]> {
-    var pyr ="http://localhost:9999/api/OngoingByYear";
+    var pyr ="http://localhost:8050/admin-service/api/OngoingByYear";
     const url = `${pyr}/${yr}`;
     return this.http.get<Project[]>(url);
   }
 
   public getCompletedProjectByYear(yr:number):Observable<Project[]> {
-    var pyr ="http://localhost:9999/api/CompletedByYear";
+    var pyr ="http://localhost:8050/admin-service/api/CompletedByYear";
     const url = `${pyr}/${yr}`;
     return this.http.get<Project[]>(url);
   }
   public getLatestProject():Observable<Project[]>{
-    var latestUrl ="http://localhost:9999/api/getLatest";
+    var latestUrl ="http://localhost:8050/admin-service/api/getLatest";
   
     return this.http.get<Project[]>(latestUrl);
   }
 
   public getProjectCount():Observable<number[]>{
-    var CountUrl ="http://localhost:9999/api/getByYear";
+    var CountUrl ="http://localhost:8050/admin-service/api/getByYear";
    
     return this.http.get<number[]>(CountUrl);
   }

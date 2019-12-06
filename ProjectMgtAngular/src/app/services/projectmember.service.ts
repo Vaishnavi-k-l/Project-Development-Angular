@@ -14,9 +14,9 @@ export class ProjectMemberService {
 
 
   constructor(private http: HttpClient) {
-    this.projectMemberUrl = 'http://localhost:9999/projectMember/saveProjectMember';
-    this.assignedMemberUrl = 'http://localhost:9999/projectMember/getAllMembersOfAProject';
-    this.findProjectlByEmpIdURL = 'http://localhost:9999/getProjectMembers';
+    this.projectMemberUrl = 'http://localhost:8050/manager-service/projectMember/saveProjectMember';
+    this.assignedMemberUrl = 'http://localhost:8050/manager-service/projectMember/getAllMembersOfAProject';
+    this.findProjectlByEmpIdURL = 'http://localhost:8050/admin-service/api/getteams';
 
   }
 

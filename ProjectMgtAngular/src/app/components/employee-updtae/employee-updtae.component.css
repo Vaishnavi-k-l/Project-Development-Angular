@@ -19,6 +19,7 @@ button:focus{
 td{
     vertical-align: middle;
     text-align: -webkit-center;
+
 }
 
 .task-card-header{
@@ -104,6 +105,11 @@ td{
 
 button:focus{
   outline: none;
+}
+
+td
+{
+  padding: 60px;
 }
 
 /* 

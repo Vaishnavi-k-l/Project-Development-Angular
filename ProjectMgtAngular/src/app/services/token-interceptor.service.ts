@@ -7,7 +7,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let token = window.localStorage.getItem('token');
-    //console.log(token);
+    console.log(token);
 console.log("inside token iterceptor");
     if (token) {
 

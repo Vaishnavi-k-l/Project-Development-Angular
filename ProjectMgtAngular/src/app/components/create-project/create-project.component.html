@@ -6,7 +6,8 @@
     
             <div class="form-group">
                 <label for="inputTitle">Project Title<span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="inputTitle" minlength="10"
+                <input type="text" class="form-control" id="inputTitle" minlength="3"
+                
                     [(ngModel)]="projectMapper.name" name="name" placeholder="Project title" required
                     #name="ngModel" [ngClass]="{
                         'has-danger': name.invalid && (name.dirty || name.touched),
@@ -15,7 +16,8 @@
                 <div class="form-control-feedback" *ngIf="name.errors && (name.dirty || name.touched)"
                 class="alert alert-danger">
                     <div *ngIf="name.errors.required">Project name is required. </div>
-                    <div *ngIf="name.errors.minlength">Project name must be at least 10 characters long.</div>
+                    <div *ngIf="name.errors.minlength">Project name must be at least 3 characters long.</div>
+
                 </div>
     
             </div>

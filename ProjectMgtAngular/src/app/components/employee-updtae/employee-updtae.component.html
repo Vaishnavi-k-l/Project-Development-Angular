@@ -1,7 +1,7 @@
 <div class="navigation-container" [class.navigation-is-mobile]="mobileQuery.matches">
     <mat-toolbar class="header">
         <mat-toolbar-row class="header-row">
-        
+
             <span>Third Line</span>
             <span class="toolbar-spacer"></span>
             <button mat-icon-button [matMenuTriggerFor]="profileMenu">
@@ -10,71 +10,76 @@
                 </mat-icon>
             </button>
             <mat-menu #profileMenu="matMenu">
-                    <!-- <button mat-menu-item>Profile</button>
+                <!-- <button mat-menu-item>Profile</button>
                     <mat-divider></mat-divider> -->
-                    <button mat-menu-item (click)="logout()">Log Out</button>
-                </mat-menu>
+                <button mat-menu-item (click)="logout()">Log Out</button>
+            </mat-menu>
         </mat-toolbar-row>
     </mat-toolbar>
 
 
 
-<mat-card class="task-card">
-    <mat-card-header class="task-card-header">
-        <mat-card-title>
-            Assigned SubTask
-        </mat-card-title>
-    </mat-card-header>
+    <mat-card class="task-card">
+        <mat-card-header class="task-card-header">
+            <mat-card-title>
+                Assigned SubTask
+            </mat-card-title>
+            <mat-card-subtitle>
+                    <button mat-flat-button color="primary" class="project-button" [routerLink]="['/cardemp']">Home</button>
+            </mat-card-subtitle>
+        </mat-card-header>
 
-    <mat-card-content>
-        <div class="container pt-5">
-    
-            <form #UpdateForm="ngForm">
-                <table class="table text-center table-borderless table-responsive">
-                    <thead>
-                        <tr class="alignment text-uppercase">
-                            <th scope="col">ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Start Date</th>
-                            <th scope="col">Due Date</th>
-                            <th scope="col">Progress</th>
-                            <th scope="col">Update</th>
-                        </tr>
-                    </thead>
-    
-                    <tbody>
-                        <!-- <tr *ngFor="let taskdetail of tasks">-->
-                        <tr *ngFor="let subtask of subtasks;let i=index">
-                            <th scope="row">{{subtask.subTaskId}}</th>
-                            <td>{{subtask.subTaskTitle}}</td>
-                            <td>{{subtask.subTaskDescription}}</td>
-                            <td>{{subtask.startDate | date: "MM/dd/yy"}}</td>
-                            <td>{{subtask.dueDate | date: "MM/dd/yy" }}</td>
-    
-    
-                            <td>
-                                <progress-bar [progress]="subtask.progressPercentage" id="progress-bar"
-                                    [color-degraded]="{'0': '#ff0000',  '15': '#ed5107', '50': '#40bfc1', '70' : '#a8ff3e'}">
-                                </progress-bar>
-                                <input type="text" value="{{subtask.progressPercentage}}" id="progress-text"
-                                    class="noborder" style="display: none;" [(ngModel)]="subtask.progressPercentage"
-                                    name="progress-text">
-                                <br />
-                                <textarea id="progress-comment" style="display: none;" [(ngModel)]="subtask.comment"
-                                    name="progress-comment" required>
+        <mat-card-content>
+            <div class="container pt-5">
+
+                <form #UpdateForm="ngForm">
+                    <table class="table text-center table-borderless table-responsive">
+                        <thead>
+                            <tr class="alignment text-uppercase">
+                                <th scope="col">ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Start Date</th>
+                                <th scope="col">Due Date</th>
+                                <th scope="col">Progress</th>
+                                <th scope="col">Update</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <!-- <tr *ngFor="let taskdetail of tasks">-->
+                            <tr #name *ngFor="let subtask of subtasks;let i=index">
+                                <td>{{subtask.subTaskId}}</td>
+                                <td>{{subtask.subTaskTitle}}</td>
+                                <td>{{subtask.subTaskDescription}}</td>
+                                <td>{{subtask.startDate | date: "MM/dd/yy"}}</td>
+                                <td>{{subtask.dueDate | date: "MM/dd/yy" }}</td>
+
+
+                                <td>
+                                    <div  #progress_bar><progress-bar [progress]="subtask.progressPercentage" id="progress-bar"
+                                        [color-degraded]="{'0': '#ff0000',  '15': '#ed5107', '50': '#40bfc1', '70' : '#a8ff3e'}">
+                                    </progress-bar></div>
+                                    
+                                    <input #progress_element type="text" value="{{subtask.progressPercentage}}" id="progress-text"
+                                        class="noborder" style="display: none;" [(ngModel)]="subtask.progressPercentage"
+                                        name="progress-text">
+                                    <br />
+                                    <textarea #comment_element id="progress-comment" style="display: none;" [(ngModel)]="subtask.comment"
+                                        name="progress-comment" required>
                                 </textarea>
-    
-                            </td>
-                            <td>
-                                <button id="OnComment" type="button" [disabled]="subtask.progressPercentage>100"
-                                    class="btn btn-info btn-sm" (click)="update(i)">Update</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </form>
-        </div>
-    </mat-card-content>
-</mat-card>
+
+                                </td>
+                                <td>
+                                    <button id="OnComment" type="button" [disabled]="subtask.progressPercentage>100"
+                                        class="btn btn-info btn-sm" (click)="update(i,progress_element,comment_element, progress_bar)">Update</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
 </div>

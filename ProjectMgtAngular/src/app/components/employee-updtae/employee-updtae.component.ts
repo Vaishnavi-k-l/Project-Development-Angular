@@ -61,16 +61,17 @@ export class EmployeeUpdtaeComponent implements OnInit {
     //console.log(this.id);
   }
 
-  update(id1) {
-
+  update(id1,progress_element: HTMLElement,comment_element: HTMLElement, progress_bar: HTMLElement) {
+    console.log(progress_bar)
     this.barValue = this.barValue == "block" ? "none" : "block";
     this.textValue = this.textValue == "none" ? "block" : "none";
 
-    document.getElementById("progress-bar").style.display = this.barValue;
-    document.getElementById("progress-text").style.display = this.textValue;
+  
+    progress_bar.style.display = this.barValue;
+    progress_element.style.display = this.textValue;
    
     
-    document.getElementById("progress-comment").style.display = this.textValue;
+    comment_element.style.display = this.textValue;
 
     console.log(this.subtasks[id1].progressPercentage)
     console.log(this.subtasks[id1].comment)
@@ -102,7 +103,8 @@ export class EmployeeUpdtaeComponent implements OnInit {
     startDate: Date,
     dueDate: Date,
     progressPercentage: number
-  }) {
+  }) 
+  {
     document.getElementById("progress-bar").style.display = "block";
     document.getElementById("progress-text").style.display = "none";
     //console.log(subtaskObj.progressPercentage);
@@ -121,4 +123,3 @@ export class EmployeeUpdtaeComponent implements OnInit {
 
 
 }
-

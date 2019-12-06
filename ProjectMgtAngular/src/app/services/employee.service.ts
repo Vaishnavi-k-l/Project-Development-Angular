@@ -23,16 +23,16 @@ export class EmployeeService {
 
 
   constructor(private http: HttpClient) {
-    this.employeeUrl = 'http://localhost:9999/searchEmpData';
-    this.memberUrl = 'http://localhost:9999/getProjectMembers';
+    this.employeeUrl = 'http://localhost:8050/admin-service/api/search';
+    this.memberUrl = 'http://localhost:8050/admin-service/api/getteams';
 
-    this.managerURL = 'http://localhost:9999/project/getManagersByAvailability';
-    this.skilledEmployeeURL = 'http://localhost:1188/employeeSkill/getEmployeesBySkills';
+    this.managerURL = 'http://localhost:8050/manager-service/employee/getManagersByAvailability';
+    this.skilledEmployeeURL = 'http://localhost:8050/manager-service/employeeSkill/getEmployeesBySkills';
 
 
     // this.managerURL = 'spring-end/employee/getManagersByAvailability';
     // this.skilledEmployeeURL = 'spring-end/employeeSkill/getEmployeesBySkills';
-    this.employeeURL = 'http://localhost:1188/employee/getMembersByAvailability';
+    this.employeeURL = 'http://localhost:8050/manager-service/employee/getMembersByAvailability';
 
     this.receivedFilter = new EventEmitter<string>();
   }

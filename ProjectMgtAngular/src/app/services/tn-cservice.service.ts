@@ -12,8 +12,8 @@ export class TnCServiceService {
   private updateEulURL : string;
 
   constructor(private http: HttpClient) {
-    this.findEmplByIdURL = 'http://localhost:1188/employee/EmployeeById';
-    this.updateEulURL = 'http://localhost:1188/employee/updateEul';
+    this.findEmplByIdURL = 'http://localhost:8050/manager-service/employee/EmployeeById';
+    this.updateEulURL = 'http://localhost:8050/manager-service/employee/updateEul';
     
 
   } 
